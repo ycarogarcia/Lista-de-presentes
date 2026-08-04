@@ -21,32 +21,6 @@
   --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #211B14; --bg-elevated: #29221A; --card-bg: #2F2820;
-    --ink: #F1E8D9; --ink-soft: #C4B7A2;
-    --sage: #93AC83; --sage-deep: #C1D8AE; --sage-tint: #2C3524; --line: #3A311F;
-    --good: #C1D8AE; --good-tint: #2C3524;
-    --bear: #D9A066;
-    --shadow: 0 16px 34px -18px rgba(0,0,0,0.6);
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #211B14; --bg-elevated: #29221A; --card-bg: #2F2820;
-  --ink: #F1E8D9; --ink-soft: #C4B7A2;
-  --sage: #93AC83; --sage-deep: #C1D8AE; --sage-tint: #2C3524; --line: #3A311F;
-  --good: #C1D8AE; --good-tint: #2C3524;
-  --bear: #D9A066;
-  --shadow: 0 16px 34px -18px rgba(0,0,0,0.6);
-}
-:root[data-theme="light"] {
-  --bg: #F5EFE3; --bg-elevated: #FDFBF6; --card-bg: #FFFFFF;
-  --ink: #362F26; --ink-soft: #7D7566;
-  --sage: #7C9473; --sage-deep: #556B49; --sage-tint: #E4EAD9; --line: #E6DDCC;
-  --good: #556B49; --good-tint: #E4EAD9;
-  --bear: #C08552;
-  --shadow: 0 16px 34px -18px rgba(54,47,38,0.28);
-}
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
