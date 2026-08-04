@@ -1,51 +1,51 @@
 :root {
-  --bg: #F8FDFA;
-  --bg-elevated: #FFFFFF;
+  --bg: #F5EFE3;
+  --bg-elevated: #FDFBF6;
   --card-bg: #FFFFFF;
-  --ink: #23302A;
-  --ink-soft: #5C6E64;
-  --mint: #5FB58C;
-  --mint-deep: #3F8F6D;
-  --mint-tint: #DCF0E6;
-  --line: #DCEAE1;
-  --good: #3F8F6D;
-  --good-tint: #DCF0E6;
+  --ink: #362F26;
+  --ink-soft: #7D7566;
+  --sage: #7C9473;
+  --sage-deep: #556B49;
+  --sage-tint: #E4EAD9;
+  --line: #E6DDCC;
+  --good: #556B49;
+  --good-tint: #E4EAD9;
   --critter-light: #FBF3E7;
   --critter-dark: #3E2E22;
   --bear: #C08552;
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;
-  --shadow: 0 16px 34px -18px rgba(43,58,51,0.30);
+  --shadow: 0 16px 34px -18px rgba(54,47,38,0.28);
   --font-display: 'Fredoka', ui-rounded, 'Segoe UI Rounded', system-ui, sans-serif;
   --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #17231D; --bg-elevated: #1E2A23; --card-bg: #24332B;
-    --ink: #E8F3ED; --ink-soft: #9DB3A7;
-    --mint: #6FC79C; --mint-deep: #9FE0BE; --mint-tint: #223B2F; --line: #2A3C32;
-    --good: #9FE0BE; --good-tint: #223B2F;
+    --bg: #211B14; --bg-elevated: #29221A; --card-bg: #2F2820;
+    --ink: #F1E8D9; --ink-soft: #C4B7A2;
+    --sage: #93AC83; --sage-deep: #C1D8AE; --sage-tint: #2C3524; --line: #3A311F;
+    --good: #C1D8AE; --good-tint: #2C3524;
     --bear: #D9A066;
     --shadow: 0 16px 34px -18px rgba(0,0,0,0.6);
   }
 }
 :root[data-theme="dark"] {
-  --bg: #17231D; --bg-elevated: #1E2A23; --card-bg: #24332B;
-  --ink: #E8F3ED; --ink-soft: #9DB3A7;
-  --mint: #6FC79C; --mint-deep: #9FE0BE; --mint-tint: #223B2F; --line: #2A3C32;
-  --good: #9FE0BE; --good-tint: #223B2F;
+  --bg: #211B14; --bg-elevated: #29221A; --card-bg: #2F2820;
+  --ink: #F1E8D9; --ink-soft: #C4B7A2;
+  --sage: #93AC83; --sage-deep: #C1D8AE; --sage-tint: #2C3524; --line: #3A311F;
+  --good: #C1D8AE; --good-tint: #2C3524;
   --bear: #D9A066;
   --shadow: 0 16px 34px -18px rgba(0,0,0,0.6);
 }
 :root[data-theme="light"] {
-  --bg: #F8FDFA; --bg-elevated: #FFFFFF; --card-bg: #FFFFFF;
-  --ink: #23302A; --ink-soft: #5C6E64;
-  --mint: #5FB58C; --mint-deep: #3F8F6D; --mint-tint: #DCF0E6; --line: #DCEAE1;
-  --good: #3F8F6D; --good-tint: #DCF0E6;
+  --bg: #F5EFE3; --bg-elevated: #FDFBF6; --card-bg: #FFFFFF;
+  --ink: #362F26; --ink-soft: #7D7566;
+  --sage: #7C9473; --sage-deep: #556B49; --sage-tint: #E4EAD9; --line: #E6DDCC;
+  --good: #556B49; --good-tint: #E4EAD9;
   --bear: #C08552;
-  --shadow: 0 16px 34px -18px rgba(43,58,51,0.30);
+  --shadow: 0 16px 34px -18px rgba(54,47,38,0.28);
 }
 
 * { box-sizing: border-box; }
@@ -68,7 +68,7 @@ body {
 .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 a { color: inherit; }
 a:focus-visible, button:focus-visible, input:focus-visible {
-  outline: 3px solid var(--mint-deep);
+  outline: 3px solid var(--sage-deep);
   outline-offset: 3px;
   border-radius: 8px;
 }
@@ -78,9 +78,9 @@ h1, h2, h3, .btn { font-family: var(--font-display); }
 /* ---------- Hero ---------- */
 .hero { position: relative; padding: 64px 0 40px; overflow: hidden; }
 .hero-art { display: block; width: min(420px, 78vw); margin: 0 auto 8px; }
-.cloud-a { fill: var(--mint); opacity: .55; }
-.cloud-b { fill: var(--mint-tint); opacity: .9; }
-.cloud-c { fill: var(--mint-deep); opacity: .22; }
+.cloud-a { fill: var(--sage); opacity: .5; }
+.cloud-b { fill: var(--sage-tint); opacity: .95; }
+.cloud-c { fill: var(--sage-deep); opacity: .2; }
 .bear-head, .bear-ear { fill: var(--bear); }
 .bear-snout { fill: var(--critter-light); }
 .bear-feature { fill: var(--critter-dark); }
@@ -101,7 +101,7 @@ h1 { font-weight: 600; font-size: clamp(2.1rem, 4.4vw, 3rem); line-height: 1.12;
 }
 .btn:hover { transform: translateY(-1px); }
 .btn:disabled { cursor: default; transform: none; }
-.btn-primary { background: var(--mint-deep); color: #fff; box-shadow: 0 10px 22px -10px rgba(63,143,109,.55); font-family: var(--font-display); }
+.btn-primary { background: var(--sage-deep); color: #fff; box-shadow: 0 10px 22px -10px rgba(85,107,73,.55); font-family: var(--font-display); }
 .btn-secondary { background: transparent; border-color: var(--line); color: var(--ink); }
 
 /* ---------- Como funciona ---------- */
@@ -113,7 +113,7 @@ h2 { font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin: 0 0 10px
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .step { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 22px 20px; }
 .step-num {
-  width: 34px; height: 34px; border-radius: 50%; background: var(--mint-deep); color: #fff;
+  width: 34px; height: 34px; border-radius: 50%; background: var(--sage-deep); color: #fff;
   display: flex; align-items: center; justify-content: center; font-family: var(--font-display);
   font-weight: 600; margin-bottom: 14px;
 }
@@ -126,14 +126,14 @@ h2 { font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin: 0 0 10px
   text-decoration: none; font-size: 14px; font-weight: 700; padding: 9px 18px; border-radius: 999px;
   background: var(--bg-elevated); border: 1px solid var(--line); color: var(--ink-soft);
 }
-.catnav a:hover { border-color: var(--mint-deep); color: var(--mint-deep); }
+.catnav a:hover { border-color: var(--sage-deep); color: var(--sage-deep); }
 
 /* ---------- Categorias ---------- */
 .category { padding: 46px 0 6px; scroll-margin-top: 20px; }
 .cat-head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
 .cat-icon {
-  width: 46px; height: 46px; flex: none; border-radius: 14px; background: var(--mint-tint);
-  color: var(--mint-deep); display: flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px; flex: none; border-radius: 14px; background: var(--sage-tint);
+  color: var(--sage-deep); display: flex; align-items: center; justify-content: center;
 }
 .cat-icon svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .cat-title h2 { margin: 0; font-size: 1.4rem; }
@@ -151,14 +151,14 @@ h2 { font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin: 0 0 10px
 .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 
 .price {
-  font-family: var(--font-display); font-weight: 600; font-size: .92rem; color: var(--mint-deep);
+  font-family: var(--font-display); font-weight: 600; font-size: .92rem; color: var(--sage-deep);
   font-variant-numeric: tabular-nums;
 }
 
 .btn-gift {
-  font-size: 13.5px; padding: 9px 16px; background: var(--mint-tint); color: var(--mint-deep); border: none;
+  font-size: 13.5px; padding: 9px 16px; background: var(--sage-tint); color: var(--sage-deep); border: none;
 }
-.btn-gift:hover:not(:disabled) { background: var(--mint-deep); color: #fff; }
+.btn-gift:hover:not(:disabled) { background: var(--sage-deep); color: #fff; }
 
 .badge-reserved {
   font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
@@ -170,14 +170,14 @@ h2 { font-weight: 600; font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin: 0 0 10px
 /* ---------- Footer ---------- */
 footer { margin-top: 30px; padding: 44px 0 60px; text-align: center; border-top: 1px solid var(--line); }
 footer p { color: var(--ink-soft); font-size: .95rem; max-width: 440px; margin: 0 auto; }
-.footer-mark { font-family: var(--font-display); font-weight: 600; color: var(--mint-deep); margin-bottom: 10px; font-size: 1.05rem; }
+.footer-mark { font-family: var(--font-display); font-weight: 600; color: var(--sage-deep); margin-bottom: 10px; font-size: 1.05rem; }
 
 /* ---------- Modal ---------- */
 dialog#reserve-modal {
   border: none; border-radius: var(--radius-md); padding: 28px; max-width: 380px; width: calc(100% - 48px);
   background: var(--card-bg); color: var(--ink); box-shadow: var(--shadow); font-family: var(--font-body);
 }
-dialog#reserve-modal::backdrop { background: rgba(23, 35, 29, .45); }
+dialog#reserve-modal::backdrop { background: rgba(33, 27, 20, .45); }
 dialog#reserve-modal h3 { margin: 0 0 8px; font-size: 1.15rem; }
 dialog#reserve-modal p { margin: 0 0 16px; color: var(--ink-soft); font-size: .92rem; }
 dialog#reserve-modal label { display: block; font-size: .85rem; font-weight: 700; margin-bottom: 6px; }
