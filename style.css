@@ -1,9 +1,9 @@
 :root {
-  --bg: #EDF6F1;
+  --bg: #F8FDFA;
   --bg-elevated: #FFFFFF;
   --card-bg: #FFFFFF;
-  --ink: #2B3A33;
-  --ink-soft: #77897F;
+  --ink: #23302A;
+  --ink-soft: #5C6E64;
   --mint: #5FB58C;
   --mint-deep: #3F8F6D;
   --mint-tint: #DCF0E6;
@@ -40,8 +40,8 @@
   --shadow: 0 16px 34px -18px rgba(0,0,0,0.6);
 }
 :root[data-theme="light"] {
-  --bg: #EDF6F1; --bg-elevated: #FFFFFF; --card-bg: #FFFFFF;
-  --ink: #2B3A33; --ink-soft: #77897F;
+  --bg: #F8FDFA; --bg-elevated: #FFFFFF; --card-bg: #FFFFFF;
+  --ink: #23302A; --ink-soft: #5C6E64;
   --mint: #5FB58C; --mint-deep: #3F8F6D; --mint-tint: #DCF0E6; --line: #DCEAE1;
   --good: #3F8F6D; --good-tint: #DCF0E6;
   --bear: #C08552;
