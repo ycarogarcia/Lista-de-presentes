@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
-import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-database.js";
+import { getDatabase, ref, onValue, runTransaction, set } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAGJNU1l2M-NzruuWArpTrW9WLxovKmlAU",
@@ -32,10 +32,10 @@ function renderReservations(data) {
     const badge = card.querySelector(".badge-reserved");
     const entry = data ? data[key] : null;
 
-    if (entry && typeof entry.nome === "string") {
+    if (entry) {
       card.classList.add("is-reserved");
       badge.hidden = false;
-      btn.textContent = `Reservado por ${entry.nome}`;
+      btn.textContent = "Reservado";
       btn.disabled = true;
     } else {
       card.classList.remove("is-reserved");
@@ -79,12 +79,18 @@ form.addEventListener("submit", async (event) => {
     const itemRef = ref(db, `reservas/${pendingKey}`);
     const result = await runTransaction(itemRef, (current) => {
       if (current === null) {
-        return { nome, timestamp: Date.now() };
+        return { reservado: true, timestamp: Date.now() };
       }
       return; // aborta: alguem chegou primeiro
     });
 
     if (result.committed) {
+      // guarda o nome num local separado, nao publico (so visivel no console do Firebase)
+      try {
+        await set(ref(db, `reservas_nomes/${pendingKey}`), { nome });
+      } catch (nameErr) {
+        // reserva ja valeu; falha aqui nao deve travar o usuario
+      }
       modal.close();
     } else {
       modalError.hidden = false;
