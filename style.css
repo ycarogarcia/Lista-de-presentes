@@ -73,6 +73,7 @@ h1 { font-weight: 600; font-size: clamp(2.1rem, 4.4vw, 3rem); line-height: 1.12;
   padding: 13px 26px; border-radius: 999px; text-decoration: none; border: 2px solid transparent;
   cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; font-family: var(--font-body);
 }
+.btn[hidden] { display: none; }
 .btn:hover { transform: translateY(-1px); }
 .btn:disabled { cursor: default; transform: none; }
 .btn-primary { background: var(--sage-deep); color: #fff; box-shadow: 0 10px 22px -10px rgba(85,107,73,.55); font-family: var(--font-display); }
