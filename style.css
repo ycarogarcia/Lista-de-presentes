@@ -162,6 +162,22 @@ dialog#reserve-modal input {
 .modal-error { color: #B65C4A !important; font-size: .85rem !important; margin: 4px 0 0 !important; }
 .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
 
+.payment-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 4px; }
+.btn-pix { background: var(--sage-tint); color: var(--sage-deep); border: none; }
+.btn-pix:hover { background: var(--sage-deep); color: #fff; }
+.btn-card { background: var(--bg-elevated); color: var(--ink); border: 1px solid var(--line); }
+.btn-card:hover { border-color: var(--sage-deep); color: var(--sage-deep); }
+
+.pix-box {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px dashed var(--line);
+  background: var(--bg-elevated);
+}
+.pix-box[hidden] { display: none; }
+.pix-key { font-family: var(--font-display); font-weight: 600; font-size: .95rem; color: var(--ink); word-break: break-all; }
+.btn-copy-pix { font-size: 13px; padding: 8px 14px; }
+.copy-feedback { color: var(--good) !important; font-size: .85rem !important; font-weight: 700; margin: 8px 0 0 !important; }
+
 @media (max-width: 720px) {
   .steps { grid-template-columns: 1fr; }
 }

@@ -15,6 +15,8 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const reservasRef = ref(db, "reservas");
 
+const PIX_KEY = "016.746.674-77";
+
 const cards = Array.from(document.querySelectorAll(".card[data-key]"));
 const modal = document.getElementById("reserve-modal");
 const form = document.getElementById("reserve-form");
@@ -23,7 +25,20 @@ const modalItemName = document.getElementById("modal-item-name");
 const modalError = document.getElementById("modal-error");
 const modalCancel = document.getElementById("modal-cancel");
 
+const paymentStep = document.getElementById("payment-step");
+const paymentItemName = document.getElementById("payment-item-name");
+const btnPix = document.getElementById("btn-pix");
+const btnCard = document.getElementById("btn-card");
+const pixBox = document.getElementById("pix-box");
+const pixKeyEl = document.getElementById("pix-key");
+const btnCopyPix = document.getElementById("btn-copy-pix");
+const copyFeedback = document.getElementById("copy-feedback");
+const paymentClose = document.getElementById("payment-close");
+
+pixKeyEl.textContent = PIX_KEY;
+
 let pendingKey = null;
+let pendingMlLink = null;
 
 function renderReservations(data) {
   cards.forEach((card) => {
@@ -55,15 +70,51 @@ cards.forEach((card) => {
   btn.addEventListener("click", () => {
     if (btn.disabled) return;
     pendingKey = card.dataset.key;
+    pendingMlLink = card.dataset.mlLink || null;
     modalItemName.textContent = card.querySelector("h3").textContent;
     modalError.hidden = true;
     nameInput.value = "";
+    form.hidden = false;
+    paymentStep.hidden = true;
     modal.showModal();
     nameInput.focus();
   });
 });
 
 modalCancel.addEventListener("click", () => {
+  modal.close();
+});
+
+modal.addEventListener("close", () => {
+  form.hidden = false;
+  paymentStep.hidden = true;
+  pixBox.hidden = true;
+  copyFeedback.hidden = true;
+  pendingKey = null;
+  pendingMlLink = null;
+});
+
+btnPix.addEventListener("click", () => {
+  pixBox.hidden = false;
+});
+
+btnCopyPix.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(PIX_KEY);
+    copyFeedback.hidden = false;
+    setTimeout(() => { copyFeedback.hidden = true; }, 2500);
+  } catch (err) {
+    // clipboard indisponivel; a chave ja esta visivel na tela para copiar manualmente
+  }
+});
+
+btnCard.addEventListener("click", () => {
+  if (pendingMlLink) {
+    window.open(pendingMlLink, "_blank", "noopener");
+  }
+});
+
+paymentClose.addEventListener("click", () => {
   modal.close();
 });
 
@@ -91,7 +142,12 @@ form.addEventListener("submit", async (event) => {
       } catch (nameErr) {
         // reserva ja valeu; falha aqui nao deve travar o usuario
       }
-      modal.close();
+      paymentItemName.textContent = modalItemName.textContent;
+      btnCard.hidden = !pendingMlLink;
+      pixBox.hidden = true;
+      copyFeedback.hidden = true;
+      form.hidden = true;
+      paymentStep.hidden = false;
     } else {
       modalError.hidden = false;
     }
